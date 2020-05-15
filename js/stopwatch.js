@@ -1,15 +1,43 @@
-
+//quiz question variables
+var quizQuestionIndex = 0;
+var time = questions.length *15;
+var clockId;
 
 //Declare variable to hold the date and time to countdown to
 var countDownDate = new Date("May 10, 2018 12:30:39").getTime();
 
 //Question variables
-var start = document.getElementById("start");
-var quiz = document.getElementById("quiz");
-var quizQuestion = document.getElementById("question");
-var A = document.getElementById("A");
-var B = document.getElementById("B");
-var C = document.getElementById("C");
+var startEl = document.getElementById("start");
+var quizQuestionEl = document.getElementById("question");
+var choicesEl = document.getElementById("choices");
+var answersEl = document.getElementById("answers");
+
+  //start quiz, go to first question
+  function firstQuestion() {
+    var questionOne = document.getElementById("first-question");
+    questionOne.setAttribute("class", "class");
+
+    //show questions
+    quizQuestions.removeAttribute("class")
+
+  }
+
+  showQuestion();
+}
+
+  
+//Display Questions
+function showQuestion(){
+  //get quiz questions
+var quizQuestions = questions[quizQuestionsIndex];
+
+//clear old choices?
+oldChoices.innerHTML = "";
+
+//loop
+quizQuestions.choices.forEach(function(choice, i) {
+  //choices
+}
 
 //Calculate remaining time
 var now = new Date().getTime();
@@ -22,6 +50,9 @@ var questionNumber = 0
 
 
   // renderCounter();
+
+
+
 
 function clock() {
   //Clock Timer Function
@@ -51,30 +82,9 @@ function clock() {
       }
     }
   }, 1000)
-}
 
 
-//Start Quiz
-function startQuiz(){
-  start.style.display = "none";
-  renderQuestion();
 
-//create question related variables
-
-var lastQuestion = questions.length - 1;
-
-//Display Questions
-function showQuestion(){
-  let q = quizQuestions[runningQuestion];
-  
-  question.innerHTML = "<p>"+ q.question +"</p>";
-  A.innerHTML = q.A;
-  B.innerHTML = q.B;
-  C.innerHTML = q.C;
-
-// Quiz Questions();
-{
-  var quizQuestions = [
     {
       quizQuestion: "Who invented JavaScript?",
       answers: {
@@ -114,8 +124,20 @@ function checkAnswer(answer){
   }
 }
 }
-/* 
 
+$('#startQuizButton').click(function(){
+
+  var questionList = [
+    {
+  question: "What does HTML stand for?",
+  answers: [
+     "Hyper Text Markup Language",
+     "Hyperlinks and Text Markup Language",
+     "WHome Tool Markup Language"],
+    correctAnswer: "A"
+  },]
+}
+/* 
       {
         question: "What does HTML stand for?",
         answers: {
@@ -160,14 +182,11 @@ function checkAnswer(answer){
 /* function showQuestions(questions, quizContainer) {
   // code will go here
 }
-
 function showResults(questions, quizContainer, resultsContainer) {
   // code will go here
 }
-
 // show the questions
 showQuestions(questions, quizContainer);
-
 // when user clicks submit, show results
 submitButton.onclick = function () {
   showResults(questions, quizContainer, resultsContainer);
@@ -198,21 +217,14 @@ submitButton.onclick = function () {
 /* var questionArray = [
 {
 {
-
         question : "What does JS stand for?",
-
         choiceA : "Wrong",
-
         choiceB : "Wrong",
-
         choiceC : "Correct",
-
         correct : "C"
  */
 
 //temp code:     if (distance < 0) {
 /*       clearInterval(x);
         document.getElementById("demo");
-        demo.value= "EXPIRED";
-    }
-*/
+        demo.value= "EXPIRED";*/)
